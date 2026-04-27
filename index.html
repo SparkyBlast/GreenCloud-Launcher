@@ -9,15 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ============================================ -->
-    <!-- LOGIN SCREEN                                  -->
-    <!-- ============================================ -->
+
     <div class="login-container" id="login-screen">
         <div class="login-card glass-panel">
             <div class="login-logo">GREENCLOUD</div>
             <p class="login-subtitle">GreenCloud V2 Launcher</p>
 
-            <!-- Tab Switcher -->
             <div class="login-tabs">
                 <button class="login-tab active" id="tab-microsoft" data-tab="microsoft">
                     <i class="fa-brands fa-microsoft"></i> Microsoft
@@ -27,7 +24,6 @@
                 </button>
             </div>
 
-            <!-- Microsoft Tab -->
             <div class="login-body" id="body-microsoft">
                 <p class="login-hint">Sign in with your Microsoft account to play on premium servers.</p>
                 <button class="login-action-btn" id="btn-ms-login">
@@ -36,7 +32,6 @@
                 <p class="login-status" id="ms-status"></p>
             </div>
 
-            <!-- Offline Tab -->
             <div class="login-body hidden" id="body-offline">
                 <p class="login-hint">Enter any username to play in offline / cracked mode.</p>
                 <input type="text" class="login-input" id="offline-username" placeholder="Enter username..." maxlength="16" autocomplete="off">
@@ -47,9 +42,6 @@
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- MAIN LAUNCHER (hidden until logged in)        -->
-    <!-- ============================================ -->
     <div class="launcher-container hidden" id="launcher-screen" style="-webkit-app-region: drag;">
         <!-- Top Bar -->
         <header class="top-bar">
@@ -73,7 +65,6 @@
             </div>
         </header>
 
-        <!-- Main Content -->
         <main class="main-content">
             <!-- Left Panel -->
             <div class="left-panel">
@@ -158,7 +149,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer class="bottom-bar">
             <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i></div>
             <div class="social-links glass-panel" style="-webkit-app-region: no-drag;">
@@ -167,13 +157,11 @@
             </div>
         </footer>
 
-        <!-- Update Banner -->
         <div id="update-banner" class="update-banner hidden">
             <span>A new version of GreenCloud is available!</span>
             <button id="restart-update-btn">Restart to Update</button>
         </div>
 
-        <!-- Settings Modal -->
         <div class="modal-overlay hidden" id="settings-modal" style="-webkit-app-region: no-drag;">
             <div class="modal-content glass-panel">
                 <div class="modal-header">
@@ -193,7 +181,6 @@
             </div>
         </div>
 
-        <!-- Mods Modal -->
         <div class="modal-overlay hidden" id="mods-tab" style="-webkit-app-region: no-drag;">
             <div class="modal-content glass-panel">
                 <div class="modal-header">
