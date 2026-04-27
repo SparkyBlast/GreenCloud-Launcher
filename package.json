@@ -1,0 +1,40 @@
+{
+  "name": "greencloud-launcher",
+  "version": "1.0.2",
+  "description": "GreenCloud Minecraft Launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . GreenCloudLauncher --platform=win32 --arch=x64 --out=dist --asar --overwrite",
+    "obfuscate": "javascript-obfuscator main.js --output main.obf.js && javascript-obfuscator script.js --output script.obf.js && javascript-obfuscator preload.js --output preload.obf.js",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "lol.greencloud.launcher",
+    "productName": "GreenCloud Launcher",
+    "publish": {
+      "provider": "generic",
+      "url": "https://YOUR_HOST_URL_HERE/updates/"
+    },
+    "directories": {
+      "output": "dist-final"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
+  },
+  "author": "heafie",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^41.3.0",
+    "electron-builder": "^26.8.1",
+    "electron-packager": "^17.1.2",
+    "javascript-obfuscator": "^5.4.2"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3",
+    "minecraft-launcher-core": "^3.18.2",
+    "msmc": "^5.0.5"
+  }
+}

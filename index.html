@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenCloud Launcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- LOGIN SCREEN                                  -->
+    <!-- ============================================ -->
+    <div class="login-container" id="login-screen">
+        <div class="login-card glass-panel">
+            <div class="login-logo">GREENCLOUD</div>
+            <p class="login-subtitle">GreenCloud V2 Launcher</p>
+
+            <!-- Tab Switcher -->
+            <div class="login-tabs">
+                <button class="login-tab active" id="tab-microsoft" data-tab="microsoft">
+                    <i class="fa-brands fa-microsoft"></i> Microsoft
+                </button>
+                <button class="login-tab" id="tab-offline" data-tab="offline">
+                    <i class="fa-solid fa-user"></i> Offline
+                </button>
+            </div>
+
+            <!-- Microsoft Tab -->
+            <div class="login-body" id="body-microsoft">
+                <p class="login-hint">Sign in with your Microsoft account to play on premium servers.</p>
+                <button class="login-action-btn" id="btn-ms-login">
+                    <i class="fa-brands fa-microsoft"></i> Sign in with Microsoft
+                </button>
+                <p class="login-status" id="ms-status"></p>
+            </div>
+
+            <!-- Offline Tab -->
+            <div class="login-body hidden" id="body-offline">
+                <p class="login-hint">Enter any username to play in offline / cracked mode.</p>
+                <input type="text" class="login-input" id="offline-username" placeholder="Enter username..." maxlength="16" autocomplete="off">
+                <button class="login-action-btn offline" id="btn-offline-login">
+                    <i class="fa-solid fa-right-to-bracket"></i> Play Offline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MAIN LAUNCHER (hidden until logged in)        -->
+    <!-- ============================================ -->
+    <div class="launcher-container hidden" id="launcher-screen" style="-webkit-app-region: drag;">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="logo-area">
+                <div class="logo-text">GREENCLOUD</div>
+            </div>
+            <div class="welcome-area glass-panel">
+                <span>Welcome back, <span class="username" id="welcome-name">Player</span>.</span>
+            </div>
+            <div class="user-controls">
+                <div class="profile glass-panel" style="-webkit-app-region: no-drag;">
+                    <img src="https://minotar.net/helm/Steve/32.png" alt="Profile" class="avatar" id="avatar-img">
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">Player</span>
+                        <span class="user-status" id="user-status">Offline</span>
+                    </div>
+                    <button class="icon-btn" id="settings-btn" style="-webkit-app-region: no-drag;"><i class="fa-solid fa-gear"></i></button>
+                </div>
+                <button class="icon-btn logout-btn" id="logout-btn" title="Log out" style="-webkit-app-region: no-drag;"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                <button class="close-btn" id="close-btn" style="-webkit-app-region: no-drag;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <div class="version-card glass-panel">
+                    <div class="version-header">
+                        <h1>GreenCloud V2 Launcher</h1>
+                        <span class="date-badge">4.26.2026</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>• Major performance improvements for 1.8.9</li>
+                        <li>• Enhanced Render and HUD modules</li>
+                        <li>• Bypass logic updated for major anti-cheats</li>
+                        <li>• New UI with seamless animations</li>
+                        <li>• Optimized Scaffold placing algorithm</li>
+                        <li>• Polished SilentAura rotation smoothing</li>
+                    </ul>
+                    <div class="version-selectors">
+                        <div class="selector-box">
+                            <div class="selector-icon greencloud-icon"></div>
+                            <div class="selector-info">
+                                <span class="selector-title">V2.0</span>
+                                <span class="selector-sub">GreenCloud</span>
+                            </div>
+                        </div>
+                        <div class="selector-box">
+                            <img src="https://minecraft.wiki/images/Grass_Block.png" alt="MC" class="mc-icon">
+                            <div class="selector-info">
+                                <span class="selector-title">1.8.9</span>
+                                <span class="selector-sub">Minecraft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="secondary-btn" id="mods-btn" style="-webkit-app-region: no-drag;">
+                    <i class="fa-solid fa-puzzle-piece"></i> Mods Manager
+                </button>
+                <button class="launch-btn" id="launch-btn" style="-webkit-app-region: no-drag;">
+                    <i class="fa-solid fa-play"></i> Launch GreenCloud
+                </button>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <div class="changelog-card glass-panel">
+                    <div class="card-header">
+                        <h2>Changelog</h2>
+                        <span class="date-badge">Latest Updates</span>
+                    </div>
+                    <div class="changelog-content">
+                        <div class="changelog-item">
+                            <span class="change-type type-improved">Improved</span>
+                            <p>Recoded the GreenCloud Launcher for stability.</p>
+                        </div>
+                        <div class="changelog-item">
+                            <span class="change-type type-improved">Improved</span>
+                            <p>Optimized the GreenCloud Client ClickGUI.</p>
+                        </div>
+                        <div class="changelog-item">
+                            <span class="change-type type-added">Added</span>
+                            <p>Integrated the new LagRange module.</p>
+                        </div>
+                        <div class="changelog-item">
+                            <span class="change-type type-added">Added</span>
+                            <p>Implemented a highly optimized Scaffold module.</p>
+                        </div>
+                        <div class="changelog-item">
+                            <span class="change-type type-improved">Improved</span>
+                            <p>Fully redesigned the GreenCloud website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="release-card glass-panel">
+                    <div class="card-header">
+                        <h2>Release</h2>
+                        <span class="date-badge">v1.0</span>
+                    </div>
+                    <div class="release-content">
+                        <h3>GreenCloud V2 is officially here!</h3>
+                        <p>After months of development and troubleshooting, we are excited to release the GreenCloud Client! It is your best free hybrid client for 1.8.9 cheating.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bottom-bar">
+            <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+            <div class="social-links glass-panel" style="-webkit-app-region: no-drag;">
+                <a href="https://discord.gg/V7Zy4GruQb" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://greencloud.lol" target="_blank" title="Website"><i class="fa-solid fa-link"></i></a>
+            </div>
+        </footer>
+
+        <!-- Update Banner -->
+        <div id="update-banner" class="update-banner hidden">
+            <span>A new version of GreenCloud is available!</span>
+            <button id="restart-update-btn">Restart to Update</button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div class="modal-overlay hidden" id="settings-modal" style="-webkit-app-region: no-drag;">
+            <div class="modal-content glass-panel">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button class="close-btn" id="close-settings"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label>RAM Allocation: <span id="ram-display">4GB</span></label>
+                        <input type="range" id="ram-slider" min="1" max="16" value="4" class="custom-slider">
+                    </div>
+                    <div class="setting-group">
+                        <label>GUI Accent Color</label>
+                        <input type="color" id="color-picker" value="#4f7cf6" class="custom-color-picker">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mods Modal -->
+        <div class="modal-overlay hidden" id="mods-tab" style="-webkit-app-region: no-drag;">
+            <div class="modal-content glass-panel">
+                <div class="modal-header">
+                    <h2>Mods Manager</h2>
+                    <button class="close-btn" id="close-mods"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <button id="add-mod-btn" class="secondary-btn" style="margin-bottom: 15px; height: 40px; font-size: 14px;">
+                        <i class="fa-solid fa-plus"></i> Add Mod (.jar)
+                    </button>
+                    <ul id="mods-list" class="mods-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
